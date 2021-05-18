@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from '@web3-react/types'
+import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from 'caverjs-react-types'
 
 export abstract class AbstractConnector extends EventEmitter {
   public readonly supportedChainIds?: number[]

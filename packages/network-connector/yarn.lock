@@ -2,6 +2,18 @@
 # yarn lockfile v1
 
 
+caverjs-react-abstract-connector@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.0.tgz#0fcda320186ecd9457d787a96f3ed16b5c3ce34f"
+  integrity sha512-Eq6Lh7rFiXWWuG07KbBRYH++yhaO0RHwm4LGWVZV3qBHbLURm1ZWDrz/cGft6xFAF+blkPIR5VGM9Yy3ndnqlg==
+  dependencies:
+    caverjs-react-types "^1.0.0"
+
+caverjs-react-types@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz#dac33e658d3f1fe09aea0413d8705acfe6b7e17c"
+  integrity sha512-6K3KU5xeubLjS9XnexAmSSDe7b2wlgTBJexQ2HRFcatcEzlet6u0kmGaV56uQTe8GC6olB95kM79JsMwSahQIw==
+
 tiny-invariant@^1.0.6:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"

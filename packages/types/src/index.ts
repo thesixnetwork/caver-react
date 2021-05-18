@@ -9,7 +9,7 @@ export interface ConnectorUpdate<T = number | string> {
 }
 
 export enum ConnectorEvent {
-  Update = 'Web3ReactUpdate',
-  Error = 'Web3ReactError',
-  Deactivate = 'Web3ReactDeactivate'
+  Update = 'CaverJsReactUpdate',
+  Error = 'CaverJsReactError',
+  Deactivate = 'CaverJsReactDeactivate'
 }

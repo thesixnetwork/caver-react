@@ -1,33 +1,25 @@
 {
-  "private": true,
-  "name": "web3-react",
-  "description": "A simple, maximally extensible, dependency minimized framework for building modern Ethereum dApps",
+  "private": false,
+  "name": "caverjs-react",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
     "react-hooks",
     "hooks",
     "ethereum",
+    "klaytn",
     "javascript",
     "typescript",
-    "web3",
+    "caverjs",
     "context",
     "frontend",
     "dapp",
-    "metamask",
-    "walletconnect",
-    "walletlink",
-    "frame",
-    "fortmatic",
-    "portis",
-    "squarelink",
-    "torus",
-    "authereum",
-    "magic"
+    "kaikas"
   ],
-  "author": "Noah Zinsmeister <noahwz@gmail.com>",
+  "author": "Nantanart Takonuan <nantanart@six.network>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/NoahZinsmeister/web3-react.git"
+    "url": "git://github.com/thesixnetwork/caverjs-react.git"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",

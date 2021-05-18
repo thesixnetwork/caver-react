@@ -1,37 +1,37 @@
 import React, { createContext, useContext, useMemo } from 'react'
 import invariant from 'tiny-invariant'
 
-import { Web3ReactContextInterface } from './types'
-import { useWeb3ReactManager } from './manager'
+import { CaverJsReactContextInterface } from './types'
+import { useCaverJsReactManager } from './manager'
 
 export const PRIMARY_KEY = 'primary'
-const CONTEXTS: { [key: string]: React.Context<Web3ReactContextInterface> } = {}
+const CONTEXTS: { [key: string]: React.Context<CaverJsReactContextInterface> } = {}
 
-interface Web3ReactProviderArguments {
-  getLibrary: (provider?: any, connector?: Required<Web3ReactContextInterface>['connector']) => any
+interface CaverJsReactProviderArguments {
+  getLibrary: (provider?: any, connector?: Required<CaverJsReactContextInterface>['connector']) => any
   children: any
 }
 
-export function createWeb3ReactRoot(key: string): (args: Web3ReactProviderArguments) => JSX.Element {
+export function createCaverJsReactRoot(key: string): (args: CaverJsReactProviderArguments) => JSX.Element {
   invariant(!CONTEXTS[key], `A root already exists for provided key ${key}`)
 
-  CONTEXTS[key] = createContext<Web3ReactContextInterface>({
+  CONTEXTS[key] = createContext<CaverJsReactContextInterface>({
     activate: async () => {
-      invariant(false, 'No <Web3ReactProvider ... /> found.')
+      invariant(false, 'No <CaverJsReactProvider ... /> found.')
     },
     setError: () => {
-      invariant(false, 'No <Web3ReactProvider ... /> found.')
+      invariant(false, 'No <CaverJsReactProvider ... /> found.')
     },
     deactivate: () => {
-      invariant(false, 'No <Web3ReactProvider ... /> found.')
+      invariant(false, 'No <CaverJsReactProvider ... /> found.')
     },
     active: false
   })
-  CONTEXTS[key].displayName = `Web3ReactContext - ${key}`
+  CONTEXTS[key].displayName = `CaverJsReactContext - ${key}`
 
   const Provider = CONTEXTS[key].Provider
 
-  return function Web3ReactProvider({ getLibrary, children }: Web3ReactProviderArguments): JSX.Element {
+  return function CaverJsReactProvider({ getLibrary, children }: CaverJsReactProviderArguments): JSX.Element {
     const {
       connector,
       provider,
@@ -43,7 +43,7 @@ export function createWeb3ReactRoot(key: string): (args: Web3ReactProviderArgume
       deactivate,
 
       error
-    } = useWeb3ReactManager()
+    } = useCaverJsReactManager()
 
     const active = connector !== undefined && chainId !== undefined && account !== undefined && !!!error
     const library = useMemo(
@@ -54,7 +54,7 @@ export function createWeb3ReactRoot(key: string): (args: Web3ReactProviderArgume
       [active, getLibrary, provider, connector, chainId]
     )
 
-    const web3ReactContext: Web3ReactContextInterface = {
+    const caverJsReactContext: CaverJsReactContextInterface = {
       connector,
       library,
       chainId,
@@ -68,17 +68,17 @@ export function createWeb3ReactRoot(key: string): (args: Web3ReactProviderArgume
       error
     }
 
-    return <Provider value={web3ReactContext}>{children}</Provider>
+    return <Provider value={caverJsReactContext}>{children}</Provider>
   }
 }
 
-export const Web3ReactProvider = createWeb3ReactRoot(PRIMARY_KEY)
+export const CaverJsReactProvider = createCaverJsReactRoot(PRIMARY_KEY)
 
-export function getWeb3ReactContext<T = any>(key: string = PRIMARY_KEY): React.Context<Web3ReactContextInterface<T>> {
+export function getCaverJsReactContext<T = any>(key: string = PRIMARY_KEY): React.Context<CaverJsReactContextInterface<T>> {
   invariant(Object.keys(CONTEXTS).includes(key), `Invalid key ${key}`)
   return CONTEXTS[key]
 }
 
-export function useWeb3React<T = any>(key?: string): Web3ReactContextInterface<T> {
-  return useContext(getWeb3ReactContext(key))
+export function useCaverJsReact<T = any>(key?: string): CaverJsReactContextInterface<T> {
+  return useContext(getCaverJsReactContext(key))
 }
