@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import { useWeb3React } from '@web3-react/core'
+import { useCaverJsReact } from 'caverjs-react-core'
 
 import { injected } from './connectors'
 
 export function useEagerConnect() {
-  const { activate, active } = useWeb3React()
+  const { activate, active } = useCaverJsReact()
 
   const [tried, setTried] = useState(false)
 
@@ -31,11 +31,11 @@ export function useEagerConnect() {
 }
 
 export function useInactiveListener(suppress: boolean = false) {
-  const { active, error, activate } = useWeb3React()
+  const { active, error, activate } = useCaverJsReact()
 
   useEffect((): any => {
-    const { ethereum } = window as any
-    if (ethereum && ethereum.on && !active && !error && !suppress) {
+    const { klaytn } = window as any
+    if (klaytn && klaytn.on && !active && !error && !suppress) {
       const handleConnect = () => {
         console.log("Handling 'connect' event")
         activate(injected)
@@ -55,17 +55,17 @@ export function useInactiveListener(suppress: boolean = false) {
         activate(injected)
       }
 
-      ethereum.on('connect', handleConnect)
-      ethereum.on('chainChanged', handleChainChanged)
-      ethereum.on('accountsChanged', handleAccountsChanged)
-      ethereum.on('networkChanged', handleNetworkChanged)
+      klaytn.on('connect', handleConnect)
+      klaytn.on('chainChanged', handleChainChanged)
+      klaytn.on('accountsChanged', handleAccountsChanged)
+      klaytn.on('networkChanged', handleNetworkChanged)
 
       return () => {
-        if (ethereum.removeListener) {
-          ethereum.removeListener('connect', handleConnect)
-          ethereum.removeListener('chainChanged', handleChainChanged)
-          ethereum.removeListener('accountsChanged', handleAccountsChanged)
-          ethereum.removeListener('networkChanged', handleNetworkChanged)
+        if (klaytn.removeListener) {
+          klaytn.removeListener('connect', handleConnect)
+          klaytn.removeListener('chainChanged', handleChainChanged)
+          klaytn.removeListener('accountsChanged', handleAccountsChanged)
+          klaytn.removeListener('networkChanged', handleNetworkChanged)
         }
       }
     }

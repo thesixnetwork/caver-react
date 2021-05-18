@@ -1,11 +1,9 @@
 import React from 'react'
-import { Web3ReactProvider, useWeb3React, UnsupportedChainIdError } from '@web3-react/core'
+import { CaverJsReactProvider, useCaverJsReact, UnsupportedChainIdError } from 'caverjs-react-core'
 import {
-  NoEthereumProviderError,
+  NoKlaytnProviderError,
   UserRejectedRequestError as UserRejectedRequestErrorInjected
-} from '@web3-react/injected-connector'
-import { UserRejectedRequestError as UserRejectedRequestErrorWalletConnect } from '@web3-react/walletconnect-connector'
-import { UserRejectedRequestError as UserRejectedRequestErrorFrame } from '@web3-react/frame-connector'
+} from 'caverjs-react-injected-connector'
 import { Web3Provider } from '@ethersproject/providers'
 import { formatEther } from '@ethersproject/units'
 
@@ -13,61 +11,26 @@ import { useEagerConnect, useInactiveListener } from '../hooks'
 import {
   injected,
   network,
-  walletconnect,
-  walletlink,
-  ledger,
-  trezor,
-  lattice,
-  frame,
-  authereum,
-  fortmatic,
-  magic,
-  portis,
-  torus
 } from '../connectors'
 import { Spinner } from '../components/Spinner'
 
 enum ConnectorNames {
   Injected = 'Injected',
   Network = 'Network',
-  WalletConnect = 'WalletConnect',
-  WalletLink = 'WalletLink',
-  Ledger = 'Ledger',
-  Trezor = 'Trezor',
-  Lattice = 'Lattice',
-  Frame = 'Frame',
-  Authereum = 'Authereum',
-  Fortmatic = 'Fortmatic',
-  Magic = 'Magic',
-  Portis = 'Portis',
-  Torus = 'Torus'
 }
 
 const connectorsByName: { [connectorName in ConnectorNames]: any } = {
   [ConnectorNames.Injected]: injected,
-  [ConnectorNames.Network]: network,
-  [ConnectorNames.WalletConnect]: walletconnect,
-  [ConnectorNames.WalletLink]: walletlink,
-  [ConnectorNames.Ledger]: ledger,
-  [ConnectorNames.Trezor]: trezor,
-  [ConnectorNames.Lattice]: lattice,
-  [ConnectorNames.Frame]: frame,
-  [ConnectorNames.Authereum]: authereum,
-  [ConnectorNames.Fortmatic]: fortmatic,
-  [ConnectorNames.Magic]: magic,
-  [ConnectorNames.Portis]: portis,
-  [ConnectorNames.Torus]: torus
+  [ConnectorNames.Network]: network
 }
 
 function getErrorMessage(error: Error) {
-  if (error instanceof NoEthereumProviderError) {
+  if (error instanceof NoKlaytnProviderError) {
     return 'No Ethereum browser extension detected, install MetaMask on desktop or visit from a dApp browser on mobile.'
   } else if (error instanceof UnsupportedChainIdError) {
     return "You're connected to an unsupported network."
   } else if (
-    error instanceof UserRejectedRequestErrorInjected ||
-    error instanceof UserRejectedRequestErrorWalletConnect ||
-    error instanceof UserRejectedRequestErrorFrame
+    error instanceof UserRejectedRequestErrorInjected
   ) {
     return 'Please authorize this website to access your Ethereum account.'
   } else {
@@ -77,21 +40,25 @@ function getErrorMessage(error: Error) {
 }
 
 function getLibrary(provider: any): Web3Provider {
-  const library = new Web3Provider(provider)
+  // if (typeof window.klaytn !== 'undefined') {
+    // Kaikas user detected. You can now use the provider.
+    // provider = window['klaytn']
+  // }
+  const library = new Web3Provider(window.klaytn)
   library.pollingInterval = 12000
   return library
 }
 
 export default function() {
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
+    <CaverJsReactProvider getLibrary={getLibrary}>
       <App />
-    </Web3ReactProvider>
+    </CaverJsReactProvider>
   )
 }
 
 function ChainId() {
-  const { chainId } = useWeb3React()
+  const { chainId } = useCaverJsReact()
 
   return (
     <>
@@ -105,7 +72,7 @@ function ChainId() {
 }
 
 function BlockNumber() {
-  const { chainId, library } = useWeb3React()
+  const { chainId, library } = useCaverJsReact()
 
   const [blockNumber, setBlockNumber] = React.useState<number>()
   React.useEffect((): any => {
@@ -150,7 +117,7 @@ function BlockNumber() {
 }
 
 function Account() {
-  const { account } = useWeb3React()
+  const { account } = useCaverJsReact()
 
   return (
     <>
@@ -170,7 +137,7 @@ function Account() {
 }
 
 function Balance() {
-  const { account, library, chainId } = useWeb3React()
+  const { account, library, chainId } = useCaverJsReact()
 
   const [balance, setBalance] = React.useState()
   React.useEffect((): any => {
@@ -209,7 +176,7 @@ function Balance() {
 }
 
 function Header() {
-  const { active, error } = useWeb3React()
+  const { active, error } = useCaverJsReact()
 
   return (
     <>
@@ -234,7 +201,7 @@ function Header() {
 }
 
 function App() {
-  const context = useWeb3React<Web3Provider>()
+  const context = useCaverJsReact<Web3Provider>()
   const { connector, library, chainId, account, activate, deactivate, active, error } = context
 
   // handle logic to recognize the connector currently being activated
@@ -376,106 +343,6 @@ function App() {
             }}
           >
             Switch Networks
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.WalletConnect] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              ;(connector as any).close()
-            }}
-          >
-            Kill WalletConnect Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.WalletLink] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              ;(connector as any).close()
-            }}
-          >
-            Kill WalletLink Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.Fortmatic] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              ;(connector as any).close()
-            }}
-          >
-            Kill Fortmatic Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.Magic] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              ;(connector as any).close()
-            }}
-          >
-            Kill Magic Session
-          </button>
-        )}
-        {connector === connectorsByName[ConnectorNames.Portis] && (
-          <>
-            {chainId !== undefined && (
-              <button
-                style={{
-                  height: '3rem',
-                  borderRadius: '1rem',
-                  cursor: 'pointer'
-                }}
-                onClick={() => {
-                  ;(connector as any).changeNetwork(chainId === 1 ? 100 : 1)
-                }}
-              >
-                Switch Networks
-              </button>
-            )}
-            <button
-              style={{
-                height: '3rem',
-                borderRadius: '1rem',
-                cursor: 'pointer'
-              }}
-              onClick={() => {
-                ;(connector as any).close()
-              }}
-            >
-              Kill Portis Session
-            </button>
-          </>
-        )}
-        {connector === connectorsByName[ConnectorNames.Torus] && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              ;(connector as any).close()
-            }}
-          >
-            Kill Torus Session
           </button>
         )}
       </div>

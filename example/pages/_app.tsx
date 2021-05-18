@@ -10,7 +10,7 @@ export default class Root extends App {
     return (
       <>
         <Head>
-          <title>web3-react example</title>
+          <title>caverjs-react example</title>
         </Head>
 
         <Component />

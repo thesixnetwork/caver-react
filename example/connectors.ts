@@ -1,69 +1,58 @@
-import { InjectedConnector } from '@web3-react/injected-connector'
-import { NetworkConnector } from '@web3-react/network-connector'
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
-import { WalletLinkConnector } from '@web3-react/walletlink-connector'
-import { LedgerConnector } from '@web3-react/ledger-connector'
-import { TrezorConnector } from '@web3-react/trezor-connector'
-import { LatticeConnector } from '@web3-react/lattice-connector'
-import { FrameConnector } from '@web3-react/frame-connector'
-import { AuthereumConnector } from '@web3-react/authereum-connector'
-import { FortmaticConnector } from '@web3-react/fortmatic-connector'
-import { MagicConnector } from '@web3-react/magic-connector'
-import { PortisConnector } from '@web3-react/portis-connector'
-import { TorusConnector } from '@web3-react/torus-connector'
+import { InjectedConnector } from 'caverjs-react-injected-connector'
+import { NetworkConnector } from 'caverjs-react-network-connector'
 
 const POLLING_INTERVAL = 12000
 const RPC_URLS: { [chainId: number]: string } = {
-  1: process.env.RPC_URL_1 as string,
-  4: process.env.RPC_URL_4 as string
+  8217: process.env.RPC_URL_8217 as string,
+  1001: process.env.RPC_URL_1001 as string
 }
 
-export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] })
+export const injected = new InjectedConnector({ supportedChainIds: [8217, 1001] })
 
 export const network = new NetworkConnector({
-  urls: { 1: RPC_URLS[1], 4: RPC_URLS[4] },
-  defaultChainId: 1
+  urls: { 8217: RPC_URLS[8217], 1001: RPC_URLS[1001] },
+  defaultChainId: 1001
 })
 
-export const walletconnect = new WalletConnectConnector({
-  rpc: { 1: RPC_URLS[1], 4: RPC_URLS[4] },
-  qrcode: true,
-  pollingInterval: POLLING_INTERVAL
-})
+// export const walletconnect = new WalletConnectConnector({
+//   rpc: { 97: RPC_URLS[97], 56: RPC_URLS[56] },
+//   qrcode: true,
+//   pollingInterval: POLLING_INTERVAL
+// })
 
-export const walletlink = new WalletLinkConnector({
-  url: RPC_URLS[1],
-  appName: 'web3-react example'
-})
+// export const walletlink = new WalletLinkConnector({
+//   url: RPC_URLS[97],
+//   appName: 'web3-react example'
+// })
 
-export const ledger = new LedgerConnector({ chainId: 1, url: RPC_URLS[1], pollingInterval: POLLING_INTERVAL })
+// export const ledger = new LedgerConnector({ chainId: 97, url: RPC_URLS[97], pollingInterval: POLLING_INTERVAL })
 
-export const trezor = new TrezorConnector({
-  chainId: 1,
-  url: RPC_URLS[1],
-  pollingInterval: POLLING_INTERVAL,
-  manifestEmail: 'dummy@abc.xyz',
-  manifestAppUrl: 'http://localhost:1234'
-})
+// export const trezor = new TrezorConnector({
+//   chainId: 97,
+//   url: RPC_URLS[97],
+//   pollingInterval: POLLING_INTERVAL,
+//   manifestEmail: 'dummy@abc.xyz',
+//   manifestAppUrl: 'http://localhost:1234'
+// })
 
-export const lattice = new LatticeConnector({
-  chainId: 4,
-  appName: 'web3-react',
-  url: RPC_URLS[4]
-})
+// export const lattice = new LatticeConnector({
+//   chainId: 97,
+//   appName: 'web3-react',
+//   url: RPC_URLS[97]
+// })
 
-export const frame = new FrameConnector({ supportedChainIds: [1] })
+// export const frame = new FrameConnector({ supportedChainIds: [97] })
 
-export const authereum = new AuthereumConnector({ chainId: 42 })
+// export const authereum = new AuthereumConnector({ chainId: 97 })
 
-export const fortmatic = new FortmaticConnector({ apiKey: process.env.FORTMATIC_API_KEY as string, chainId: 4 })
+// export const fortmatic = new FortmaticConnector({ apiKey: process.env.FORTMATIC_API_KEY as string, chainId: 97 })
 
-export const magic = new MagicConnector({
-  apiKey: process.env.MAGIC_API_KEY as string,
-  chainId: 4,
-  email: 'hello@example.org'
-})
+// export const magic = new MagicConnector({
+//   apiKey: process.env.MAGIC_API_KEY as string,
+//   chainId: 97,
+//   email: 'hello@example.org'
+// })
 
-export const portis = new PortisConnector({ dAppId: process.env.PORTIS_DAPP_ID as string, networks: [1, 100] })
+// export const portis = new PortisConnector({ dAppId: process.env.PORTIS_DAPP_ID as string, networks: [97, 56] })
 
-export const torus = new TorusConnector({ chainId: 1 })
+// export const torus = new TorusConnector({ chainId: 97 })
