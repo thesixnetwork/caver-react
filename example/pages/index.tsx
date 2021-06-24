@@ -6,6 +6,7 @@ import {
 } from 'caverjs-react-injected-connector'
 import { Web3Provider } from '@ethersproject/providers'
 import { formatEther } from '@ethersproject/units'
+import Caver from 'caver-js'
 
 import { useEagerConnect, useInactiveListener } from '../hooks'
 import {
@@ -13,6 +14,8 @@ import {
   network,
 } from '../connectors'
 import { Spinner } from '../components/Spinner'
+
+const caver = new Caver(injected)
 
 enum ConnectorNames {
   Injected = 'Injected',
@@ -40,11 +43,7 @@ function getErrorMessage(error: Error) {
 }
 
 function getLibrary(provider: any): Web3Provider {
-  // if (typeof window.klaytn !== 'undefined') {
-    // Kaikas user detected. You can now use the provider.
-    // provider = window['klaytn']
-  // }
-  const library = new Web3Provider(window.klaytn)
+  const library = new Web3Provider(provider)
   library.pollingInterval = 12000
   return library
 }
@@ -77,8 +76,8 @@ function BlockNumber() {
   const [blockNumber, setBlockNumber] = React.useState<number>()
   React.useEffect((): any => {
     if (!!library) {
-      let stale = false
 
+      let stale = false
       library
         .getBlockNumber()
         .then((blockNumber: number) => {
@@ -201,8 +200,12 @@ function Header() {
 }
 
 function App() {
-  const context = useCaverJsReact<Web3Provider>()
-  const { connector, library, chainId, account, activate, deactivate, active, error } = context
+  const { connector, library, chainId, account, activate, deactivate, active, error } = useCaverJsReact()
+
+  console.log("connector = ", connector)
+  console.log("library = ", library)
+  console.log("chainId = ", chainId)
+  console.log("account = ", account)
 
   // handle logic to recognize the connector currently being activated
   const [activatingConnector, setActivatingConnector] = React.useState<any>()
@@ -309,28 +312,7 @@ function App() {
           margin: 'auto'
         }}
       >
-        {!!(library && account) && (
-          <button
-            style={{
-              height: '3rem',
-              borderRadius: '1rem',
-              cursor: 'pointer'
-            }}
-            onClick={() => {
-              library
-                .getSigner(account)
-                .signMessage('👋')
-                .then((signature: any) => {
-                  window.alert(`Success!\n\n${signature}`)
-                })
-                .catch((error: any) => {
-                  window.alert('Failure!' + (error && error.message ? `\n\n${error.message}` : ''))
-                })
-            }}
-          >
-            Sign Message
-          </button>
-        )}
+
         {!!(connector === connectorsByName[ConnectorNames.Network] && chainId) && (
           <button
             style={{
@@ -339,7 +321,7 @@ function App() {
               cursor: 'pointer'
             }}
             onClick={() => {
-              ;(connector as any).changeChainId(chainId === 1 ? 4 : 1)
+              ;(connector as any).changeChainId(chainId === 8217 ? 1001 : 8217)
             }}
           >
             Switch Networks
