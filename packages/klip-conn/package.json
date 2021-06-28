@@ -1,0 +1,50 @@
+{
+  "name": "@kanthakran/klip-connr",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.6",
+  "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
+  "keywords": [
+    "react",
+    "react-hooks",
+    "hooks",
+    "ethereum",
+    "klaytn",
+    "javascript",
+    "typescript",
+    "caverjs",
+    "context",
+    "frontend",
+    "dapp",
+    "kaikas"
+  ],
+  "author": "Nantanart Takonuan <nantanart@six.network>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thesixnetwork/caverjs-react.git"
+  },
+  "main": "dist/index.js",
+  "module": "dist/klip-connr.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src"
+  },
+  "dependencies": {
+    "@types/qrcode": "^1.4.0",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.8",
+    "axios": "^0.21.1",
+    "caverjs-react-abstract-connector": "^1.0.0",
+    "caverjs-react-types": "^1.0.0",
+    "lit-html": "^1.4.1",
+    "qrcode": "^1.4.4",
+    "tiny-warning": "^1.0.3"
+  },
+  "license": "GPL-3.0-or-later"
+}
