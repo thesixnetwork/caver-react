@@ -37,15 +37,15 @@ export function createCaverJsReactRoot(key: string): (args: CaverJsReactProvider
       provider,
       chainId,
       account,
-
       activate,
       setError,
       deactivate,
 
       error
     } = useCaverJsReactManager()
-
+    console.log("console.log(active) core 1",connector , chainId ,  account, !!!error)
     const active = connector !== undefined && chainId !== undefined && account !== undefined && !!!error
+    console.log("console.log(active) core 2",active)
     const library = useMemo(
       () =>
         active && chainId !== undefined && Number.isInteger(chainId) && !!connector
@@ -75,10 +75,12 @@ export function createCaverJsReactRoot(key: string): (args: CaverJsReactProvider
 export const CaverJsReactProvider = createCaverJsReactRoot(PRIMARY_KEY)
 
 export function getCaverJsReactContext<T = any>(key: string = PRIMARY_KEY): React.Context<CaverJsReactContextInterface<T>> {
+  console.log("debug: manager 2",key,CONTEXTS[key])
   invariant(Object.keys(CONTEXTS).includes(key), `Invalid key ${key}`)
   return CONTEXTS[key]
 }
 
 export function useCaverJsReact<T = any>(key?: string): CaverJsReactContextInterface<T> {
+  console.log("debug: manager ",key)
   return useContext(getCaverJsReactContext(key))
 }

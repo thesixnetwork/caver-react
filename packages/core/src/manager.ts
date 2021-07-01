@@ -97,18 +97,20 @@ async function augmentConnectorUpdate(
   connector: AbstractConnector,
   update: ConnectorUpdate
 ): Promise<ConnectorUpdate<number>> {
+  
   const provider = update.provider === undefined ? await connector.getProvider() : update.provider
   const [_chainId, _account] = (await Promise.all([
     update.chainId === undefined ? connector.getChainId() : update.chainId,
     update.account === undefined ? connector.getAccount() : update.account
   ])) as [Required<ConnectorUpdate>['chainId'], Required<ConnectorUpdate>['account']]
-
+  
   const chainId = normalizeChainId(_chainId)
   if (!!connector.supportedChainIds && !connector.supportedChainIds.includes(chainId)) {
     throw new UnsupportedChainIdError(chainId, connector.supportedChainIds)
   }
+  console.log("manager update arg 1",_chainId, _account,provider)
   const account = _account === null ? _account : normalizeAccount(_account)
-
+  console.log("manager update arg 2",_chainId, account,provider)
   return { provider, chainId, account }
 }
 
@@ -126,7 +128,7 @@ export function useCaverJsReactManager(): CaverJsReactManagerReturn {
       throwErrors: boolean = false
     ): Promise<void> => {
       const updateBusterInitial = updateBusterRef.current
-
+      console.log("buster first ",updateBusterRef.current)
       let activated = false
       try {
         const update = await connector.activate().then(
@@ -135,14 +137,19 @@ export function useCaverJsReactManager(): CaverJsReactManagerReturn {
             return update
           }
         )
+        console.log("buster sec ",updateBusterRef.current)
+       
 
         const augmentedUpdate = await augmentConnectorUpdate(connector, update)
-
-        if (updateBusterRef.current > updateBusterInitial) {
-          throw new StaleConnectorError()
-        }
+        console.log("buster th ",updateBusterRef.current)
+        console.log("update 140 :",update,"current",updateBusterRef.current,"buster", updateBusterInitial)
+        console.log("connector 2,",updateBusterRef ,"update B" ,updateBusterInitial,"update",update)
+        // if (updateBusterRef.current > updateBusterInitial) {
+        //   throw new StaleConnectorError()
+        // }
         dispatch({ type: ActionType.ACTIVATE_CONNECTOR, payload: { connector, ...augmentedUpdate, onError } })
       } catch (error) {
+        console.log("err 140 :",error)
         if (error instanceof StaleConnectorError) {
           activated && connector.deactivate()
           warning(false, `Suppressed stale connector activation ${connector}`)
