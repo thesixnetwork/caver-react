@@ -43,9 +43,9 @@ export function createCaverJsReactRoot(key: string): (args: CaverJsReactProvider
 
       error
     } = useCaverJsReactManager()
-    console.log("console.log(active) core 1",connector , chainId ,  account, !!!error)
+    // console.log("console.log(active) core 1",connector , chainId ,  account, !!!error)
     const active = connector !== undefined && chainId !== undefined && account !== undefined && !!!error
-    console.log("console.log(active) core 2",active)
+    // console.log("console.log(active) core 2",active)
     const library = useMemo(
       () =>
         active && chainId !== undefined && Number.isInteger(chainId) && !!connector

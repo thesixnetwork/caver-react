@@ -39,12 +39,12 @@
     "@ethersproject/keccak256": "^5.1.0",
     "caverjs-react-abstract-connector": "^1.0.0",
     "caverjs-react-types": "^1.0.0",
-    "react-dom": "file:../../../definix-frontend/node_modules/react-dom",
+    "react-dom": "file:../../../tmp/definix-frontend/node_modules/react-dom",
     "tiny-invariant": "^1.0.6",
     "tiny-warning": "^1.0.3"
   },
   "peerDependencies": {
-    "react": "file:../../../definix-frontend/node_modules/react"
+    "react": "file:../../../tmp/definix-frontend/node_modules/react"
   },
   "license": "GPL-3.0-or-later"
 }

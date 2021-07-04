@@ -137,13 +137,11 @@ export function useCaverJsReactManager(): CaverJsReactManagerReturn {
             return update
           }
         )
-        console.log("buster sec ",updateBusterRef.current)
+        console.log("buster sec ",updateBusterInitial)
        
 
         const augmentedUpdate = await augmentConnectorUpdate(connector, update)
-        console.log("buster th ",updateBusterRef.current)
-        console.log("update 140 :",update,"current",updateBusterRef.current,"buster", updateBusterInitial)
-        console.log("connector 2,",updateBusterRef ,"update B" ,updateBusterInitial,"update",update)
+       
         // if (updateBusterRef.current > updateBusterInitial) {
         //   throw new StaleConnectorError()
         // }
