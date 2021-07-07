@@ -1,5 +1,5 @@
 {
-  "name": "klip-connr",
+  "name": "klip-connector",
   "publishConfig": {
     "access": "public"
   },
