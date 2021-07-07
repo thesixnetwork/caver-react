@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-caverjs-react-types@^1.0.0:
+"@sixnetwork/caverjs-react-types@^1.0.0":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz#dac33e658d3f1fe09aea0413d8705acfe6b7e17c"
-  integrity sha512-6K3KU5xeubLjS9XnexAmSSDe7b2wlgTBJexQ2HRFcatcEzlet6u0kmGaV56uQTe8GC6olB95kM79JsMwSahQIw==
+  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz#89b7960bea37764c12a9cad5fe9a70dc4475c5ba"
+  integrity sha512-eFeP/FPjraQPPzwt6KFEv/W1OEWccu91sDC2KGP1VbmtDFwk5wEvjE0RcfWdI1kZcNCwCrSCxMX6oymrTYklcA==

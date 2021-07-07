@@ -1,5 +1,5 @@
 {
-  "name": "caverjs-react-injected-connector",
+  "name": "@sixnetwork/caverjs-react-injected-connector",
   "publishConfig": {
     "access": "public"
   },
@@ -36,8 +36,8 @@
     "lint": "tsdx lint src"
   },
   "dependencies": {
-    "caverjs-react-abstract-connector": "^1.0.0",
-    "caverjs-react-types": "^1.0.0",
+    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.0",
+    "@sixnetwork/caverjs-react-types": "^1.0.0",
     "tiny-warning": "^1.0.3"
   },
   "license": "GPL-3.0-or-later"

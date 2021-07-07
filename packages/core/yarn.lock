@@ -3,63 +3,82 @@
 
 
 "@ethersproject/bytes@^5.1.0":
-  "integrity" "sha512-sGTxb+LVjFxJcJeUswAIK6ncgOrh3D8c192iEJd7mLr95V6du119rRfYT/b87WPkZ5I3gRBUYIYXtdgCWACe8g=="
-  "resolved" "https://registry.npmjs.org/@ethersproject/bytes/-/bytes-5.1.0.tgz"
-  "version" "5.1.0"
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/@ethersproject/bytes/-/bytes-5.1.0.tgz"
+  integrity sha512-sGTxb+LVjFxJcJeUswAIK6ncgOrh3D8c192iEJd7mLr95V6du119rRfYT/b87WPkZ5I3gRBUYIYXtdgCWACe8g==
   dependencies:
     "@ethersproject/logger" "^5.1.0"
 
 "@ethersproject/keccak256@^5.1.0":
-  "integrity" "sha512-vrTB1W6AEYoadww5c9UyVJ2YcSiyIUTNDRccZIgwTmFFoSHwBtcvG1hqy9RzJ1T0bMdATbM9Hfx2mJ6H0i7Hig=="
-  "resolved" "https://registry.npmjs.org/@ethersproject/keccak256/-/keccak256-5.1.0.tgz"
-  "version" "5.1.0"
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/@ethersproject/keccak256/-/keccak256-5.1.0.tgz"
+  integrity sha512-vrTB1W6AEYoadww5c9UyVJ2YcSiyIUTNDRccZIgwTmFFoSHwBtcvG1hqy9RzJ1T0bMdATbM9Hfx2mJ6H0i7Hig==
   dependencies:
     "@ethersproject/bytes" "^5.1.0"
-    "js-sha3" "0.5.7"
+    js-sha3 "0.5.7"
 
 "@ethersproject/logger@^5.1.0":
-  "integrity" "sha512-wtUaD1lBX10HBXjjKV9VHCBnTdUaKQnQ2XSET1ezglqLdPdllNOIlLfhyCRqXm5xwcjExVI5ETokOYfjPtaAlw=="
-  "resolved" "https://registry.npmjs.org/@ethersproject/logger/-/logger-5.1.0.tgz"
-  "version" "5.1.0"
+  version "5.1.0"
+  resolved "https://registry.npmjs.org/@ethersproject/logger/-/logger-5.1.0.tgz"
+  integrity sha512-wtUaD1lBX10HBXjjKV9VHCBnTdUaKQnQ2XSET1ezglqLdPdllNOIlLfhyCRqXm5xwcjExVI5ETokOYfjPtaAlw==
 
-"caverjs-react-abstract-connector@^1.0.0":
-  "integrity" "sha512-Eq6Lh7rFiXWWuG07KbBRYH++yhaO0RHwm4LGWVZV3qBHbLURm1ZWDrz/cGft6xFAF+blkPIR5VGM9Yy3ndnqlg=="
-  "resolved" "https://registry.npmjs.org/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.0.tgz"
-  "version" "1.0.0"
+"@sixnetwork/caverjs-react-abstract-connector@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.0.tgz#6caa5e0dc4a9883b9c41420e230f0f2388b78e1a"
+  integrity sha512-fKvCfJyqSL9NqzYBQE/+oX4oDyrWWkM2p/cjAzgIFxv9M1HrrNPuU0IBwmwWkwRgg8GKEJTIYtAGvK1GgZPULw==
   dependencies:
-    "caverjs-react-types" "^1.0.0"
+    "@sixnetwork/caverjs-react-types" "^1.0.0"
 
-"caverjs-react-types@^1.0.0":
-  "integrity" "sha512-6K3KU5xeubLjS9XnexAmSSDe7b2wlgTBJexQ2HRFcatcEzlet6u0kmGaV56uQTe8GC6olB95kM79JsMwSahQIw=="
-  "resolved" "https://registry.npmjs.org/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz"
-  "version" "1.0.0"
+"@sixnetwork/caverjs-react-types@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz#89b7960bea37764c12a9cad5fe9a70dc4475c5ba"
+  integrity sha512-eFeP/FPjraQPPzwt6KFEv/W1OEWccu91sDC2KGP1VbmtDFwk5wEvjE0RcfWdI1kZcNCwCrSCxMX6oymrTYklcA==
 
-"js-sha3@0.5.7":
-  "integrity" "sha1-DU/9gALVMzqrr0oj7tL2N0yfKOc="
-  "resolved" "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.7.tgz"
-  "version" "0.5.7"
+js-sha3@0.5.7:
+  version "0.5.7"
+  resolved "https://registry.npmjs.org/js-sha3/-/js-sha3-0.5.7.tgz"
+  integrity sha1-DU/9gALVMzqrr0oj7tL2N0yfKOc=
 
-"react-dom@file:../../../tmp/definix-frontend/node_modules/react-dom":
-  "resolved" "file:../../../tmp/definix-frontend/node_modules/react-dom"
-  "version" "17.0.2"
+"js-tokens@^3.0.0 || ^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
+  integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+
+loose-envify@^1.1.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
+  integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
-    "loose-envify" "^1.1.0"
-    "object-assign" "^4.1.1"
-    "scheduler" "^0.20.2"
+    js-tokens "^3.0.0 || ^4.0.0"
 
-"react@file:../../../tmp/definix-frontend/node_modules/react":
-  "resolved" "file:../../../tmp/definix-frontend/node_modules/react"
-  "version" "17.0.2"
+object-assign@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
+  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+
+react-dom@^17.0.1:
+  version "17.0.2"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
+  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
-    "loose-envify" "^1.1.0"
-    "object-assign" "^4.1.1"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    scheduler "^0.20.2"
 
-"tiny-invariant@^1.0.6":
-  "integrity" "sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw=="
-  "resolved" "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.1.0.tgz"
-  "version" "1.1.0"
+scheduler@^0.20.2:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
+  integrity sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
-"tiny-warning@^1.0.3":
-  "integrity" "sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA=="
-  "resolved" "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
-  "version" "1.0.3"
+tiny-invariant@^1.0.6:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.1.0.tgz"
+  integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
+
+tiny-warning@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
+  integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==

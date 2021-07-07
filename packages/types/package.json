@@ -1,5 +1,5 @@
 {
-  "name": "caverjs-react-types",
+  "name": "@sixnetwork/caverjs-react-types",
   "publishConfig": {
     "access": "public"
   },
