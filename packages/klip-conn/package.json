@@ -1,5 +1,5 @@
 {
-  "name": "klip-connector",
+  "name": "@sixnetwork/klip-connector",
   "publishConfig": {
     "access": "public"
   },
