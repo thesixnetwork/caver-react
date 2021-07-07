@@ -128,7 +128,7 @@ export function useCaverJsReactManager(): CaverJsReactManagerReturn {
       throwErrors: boolean = false
     ): Promise<void> => {
       const updateBusterInitial = updateBusterRef.current
-      console.log("buster first ",updateBusterRef.current)
+      
       let activated = false
       try {
         const update = await connector.activate().then(
