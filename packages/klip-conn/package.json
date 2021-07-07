@@ -1,5 +1,5 @@
 {
-  "name": "@kanthakran/klip-connr",
+  "name": "klip-connr",
   "publishConfig": {
     "access": "public"
   },
@@ -46,8 +46,6 @@
     "caverjs-react-types": "^1.0.0",
     "lit-html": "^1.4.1",
     "qrcode": "^1.4.4",
-    "react": "file:../../../tmp/definix-frontend/node_modules/react",
-    "react-dom": "file:../../../tmp/definix-frontend/node_modules/react-dom",
     "tiny-warning": "^1.0.3"
   },
   "license": "GPL-3.0-or-later"
