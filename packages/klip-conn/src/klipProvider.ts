@@ -1,16 +1,16 @@
 // import * as React from 'react'
-import * as ReactDOM from 'react-dom'
+// import * as ReactDOM from 'react-dom'
 import QRcode from 'qrcode'
 import axios from 'axios'
 
 
-let request_key=""
-let responseData:any=undefined
-let intervalCheckResult:NodeJS.Timeout
-
-const initData = ()=>{
-  request_key=""
-  responseData=undefined
+let request_key = ""
+let responseData: any = undefined
+let intervalCheckResult: NodeJS.Timeout
+let account:string = ""
+const initData = () => {
+  request_key = ""
+  responseData = undefined
 }
 
 export const genQRcode = () => {
@@ -21,7 +21,6 @@ export const genQRcode = () => {
     },
     type: 'auth',
   }
-  // ReactDOM.createPortal(<div>g</div>,document.getEle)
   axios.post('https://a2a-api.klipwallet.com/v2/a2a/prepare', mockData).then((response) => {
     request_key = response.data.request_key
     QRcode.toCanvas(
@@ -35,45 +34,64 @@ export const genQRcode = () => {
 }
 const getResult = async () => {
   // const url =`https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${request_key}`
-  const url =`http://localhost:8080`
+  const url = `http://localhost:8080`
   const res = await axios.get(url)
-  console.log("request status : ",res.data.status)
-  if (res.data.status != "prepared") {
+  console.log("request status : ", res.data.status)
+  if (res.data.status == "completed") {
+    account = res.data.result.klaytn_address
     responseData = res.data.result.klaytn_address
-    const x= document.querySelector('#modal')
+
+    // const modalELement = document.getElementById("modal")
+    // if (modalELement != null)
+      // ReactDOM.createPortal( null,modalELement)
     clearInterval(intervalCheckResult)
   }
 
 }
 
-
+export const getAccount = ()=> account
 export const getRequestKey = () => request_key
 
-export const checkResponse = async():Promise<string> => {
+
+export const checkResponse = async (): Promise<string> => {
   return new Promise(resolve => {
-    let interCheck:NodeJS.Timeout
-    const isReslove= ()=>{
+    const interCheck = setInterval(()=>{
       console.log("check interval")
-      if(responseData != undefined){
+      if (responseData != undefined) {
         clearInterval(interCheck)
         resolve(responseData);
       }
-    }
-    interCheck = setInterval(isReslove,1000)
+    }, 1000)
+    
   });
 }
 
-// export const getResult = () => {
-//   axios
-//     .get(`https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${requestKey}`)
-//     .then((res) => {
-//       alert(`json result : ${res.data.result.klaytn_address}`)
-//     })
-//     .catch(function (error) {
-//       // handle error
-//       console.log('err ', error)
-//     })
-// }
+export const genQRcodeContactInteract = (contractAddress:string,abi:string,input:string) => {
+  initData()
+  const mockData = {
+    "bapp": {
+        "name": "definix"
+    },
+    "type": "execute_contract",
+    "transaction": {
+        "to": contractAddress,
+        "value": "0",
+        "abi": abi,
+        "params": input
+    }
+}
+  axios.post('https://a2a-api.klipwallet.com/v2/a2a/prepare', mockData).then((response) => {
+    request_key = response.data.request_key
+    QRcode.toCanvas(
+      document.getElementById('qrcode'),
+      `https://klipwallet.com/?target=/a2a?request_key=${response.data.request_key}`,
+      () => {
+        intervalCheckResult = setInterval(getResult, 1000)
+      }
+    )
+  })
+}
+
 // interface Props {
 
 // }

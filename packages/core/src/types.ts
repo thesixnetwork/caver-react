@@ -20,7 +20,7 @@ export interface CaverJsReactContextInterface<T = any> extends CaverJsReactManag
   library?: T
   chainId?: number
   account?: null | string
-
+  connectorId?: string
   active: boolean
   error?: Error
 }
