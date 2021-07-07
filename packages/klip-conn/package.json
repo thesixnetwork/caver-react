@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.1.1",
+  "version": "1.0.0",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -19,7 +19,7 @@
     "dapp",
     "kaikas"
   ],
-  "author": "Nantanart Takonuan <nantanart@six.network>",
+  "author": "Kanthakarn kalawong <kanthakarn@six.network>",
   "repository": {
     "type": "git",
     "url": "git://github.com/thesixnetwork/caverjs-react.git"
@@ -37,15 +37,10 @@
   },
   "dependencies": {
     "@types/qrcode": "^1.4.0",
-    "@types/react": "^17.0.11",
-    "@types/react-dom": "^17.0.8",
-    "@web3-react/abstract-connector": "^6.0.7",
-    "@web3-react/types": "^6.0.7",
     "axios": "^0.21.1",
     "caverjs-react-abstract-connector": "^1.0.0",
     "caverjs-react-types": "^1.0.0",
     "lit-html": "^1.4.1",
-    "qrcode": "^1.4.4",
     "tiny-warning": "^1.0.3"
   },
   "license": "GPL-3.0-or-later"

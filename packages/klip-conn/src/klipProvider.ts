@@ -3,7 +3,6 @@
 import QRcode from 'qrcode'
 import axios from 'axios'
 
-
 let request_key = ""
 let responseData: any = undefined
 let intervalCheckResult: NodeJS.Timeout
