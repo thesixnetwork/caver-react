@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@sixnetwork/caverjs-react-abstract-connector@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.0.tgz#6caa5e0dc4a9883b9c41420e230f0f2388b78e1a"
-  integrity sha512-fKvCfJyqSL9NqzYBQE/+oX4oDyrWWkM2p/cjAzgIFxv9M1HrrNPuU0IBwmwWkwRgg8GKEJTIYtAGvK1GgZPULw==
+"@sixnetwork/caverjs-react-abstract-connector@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.1.tgz#d70934170b72e74495ecad5748fa0ab3a32a6c67"
+  integrity sha512-JgSPC/erNIGhQJPpCROJyDfeokXoioa9kB4iWFsdfT5T3aYcn/0pOsdOZWmeefuzkYePCvWefnC90aQiI3D+MQ==
   dependencies:
-    "@sixnetwork/caverjs-react-types" "^1.0.0"
+    "@sixnetwork/caverjs-react-types" "^1.0.1"
 
-"@sixnetwork/caverjs-react-types@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz#89b7960bea37764c12a9cad5fe9a70dc4475c5ba"
-  integrity sha512-eFeP/FPjraQPPzwt6KFEv/W1OEWccu91sDC2KGP1VbmtDFwk5wEvjE0RcfWdI1kZcNCwCrSCxMX6oymrTYklcA==
+"@sixnetwork/caverjs-react-types@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.1.tgz#3a7e09a8e8cfa33fe50eb0fa5226e74f74303d5d"
+  integrity sha512-GEstchjp+YRkt48H2hxr7NAk6TBno0ZSRRoyXFl4ISm77ny6yLyx55EobwHnhH5m1YHe4qd6op2DSEvMWTlntg==
 
 tiny-warning@^1.0.3:
   version "1.0.3"
