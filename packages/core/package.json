@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -37,8 +37,8 @@
   },
   "dependencies": {
     "@ethersproject/keccak256": "^5.1.0",
-    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.0",
-    "@sixnetwork/caverjs-react-types": "^1.0.0",
+    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.1",
+    "@sixnetwork/caverjs-react-types": "^1.0.1",
     "react-dom": "^17.0.1",
     "tiny-invariant": "^1.0.6",
     "tiny-warning": "^1.0.3"

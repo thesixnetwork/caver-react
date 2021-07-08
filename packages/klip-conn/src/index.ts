@@ -1,5 +1,5 @@
-import { AbstractConnectorArguments, ConnectorUpdate } from 'caverjs-react-types'
-import { AbstractConnector } from 'caverjs-react-abstract-connector'
+import { AbstractConnectorArguments, ConnectorUpdate } from '@sixnetwork/caverjs-react-types'
+import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
 // import warning from 'tiny-warning'
 import * as klipProvider from "./klipProvider"
 
