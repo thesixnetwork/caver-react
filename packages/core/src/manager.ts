@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useCallback, useRef } from 'react'
-import { ConnectorUpdate, ConnectorEvent } from '@kanthakarn-test/caverjs-react-types'
-import { AbstractConnector } from '@kanthakarn-test/caverjs-react-abstract-connector'
+import { ConnectorUpdate, ConnectorEvent } from '@sixnetwork/caverjs-react-types'
+import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
 import warning from 'tiny-warning'
 
 import { CaverJsReactManagerReturn } from './types'
@@ -137,7 +137,7 @@ export function useCaverJsReactManager(): CaverJsReactManagerReturn {
             return update
           }
         )
-        console.log("buster sec ",updateBusterInitial)
+        console.log("buster ",updateBusterInitial)
        
 
         const augmentedUpdate = await augmentConnectorUpdate(connector, update)
@@ -147,7 +147,7 @@ export function useCaverJsReactManager(): CaverJsReactManagerReturn {
         // }
         dispatch({ type: ActionType.ACTIVATE_CONNECTOR, payload: { connector, ...augmentedUpdate, onError } })
       } catch (error) {
-        console.log("err 140 :",error)
+        
         if (error instanceof StaleConnectorError) {
           activated && connector.deactivate()
           warning(false, `Suppressed stale connector activation ${connector}`)

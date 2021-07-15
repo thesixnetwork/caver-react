@@ -1,9 +1,9 @@
 {
-  "name": "@kanthakarn-test/klip-connector",
+  "name": "@sixnetwork/klip-connector",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -36,8 +36,8 @@
     "lint": "tsdx lint src"
   },
   "dependencies": {
-    "@kanthakarn-test/caverjs-react-abstract-connector": "^1.0.0",
-    "@kanthakarn-test/caverjs-react-types": "^1.0.0",
+    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.3",
+    "@sixnetwork/caverjs-react-types": "^1.0.2",
     "@types/qrcode": "^1.4.0",
     "axios": "^0.21.1",
     "caver-js": "^1.6.3",

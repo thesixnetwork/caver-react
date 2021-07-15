@@ -22,17 +22,17 @@
   "resolved" "https://registry.npmjs.org/@ethersproject/logger/-/logger-5.1.0.tgz"
   "version" "5.1.0"
 
-"@kanthakarn-test/caverjs-react-abstract-connector@^1.0.0":
-  "integrity" "sha512-Gg9xkc4pTpZwYwchZ4M23sAhreF/qfxb2lIsvndCRtsCRXL3laBFTKfmoYpYf22qA1YQydKh0QWN0rfQdulyvw=="
-  "resolved" "https://registry.npmjs.org/@kanthakarn-test/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.0.tgz"
-  "version" "1.0.0"
+"@sixnetwork/caverjs-react-abstract-connector@^1.0.3":
+  "integrity" "sha512-Iq+6wkJtDYBB79UZRwIMJfVILK13QYGqXqFBPiGH17ORATDLrzuDxbB5sNUPuu3WDX5WDpsx4jCsfVnGTpfYLw=="
+  "resolved" "https://registry.npmjs.org/@sixnetwork/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.3.tgz"
+  "version" "1.0.3"
   dependencies:
-    "@kanthakarn-test/caverjs-react-types" "^1.0.0"
+    "@sixnetwork/caverjs-react-types" "^1.0.2"
 
-"@kanthakarn-test/caverjs-react-types@^1.0.0":
-  "integrity" "sha512-CTYngKJO5iqq/E1QkLDUwpw+JMriot8uc2yIzo1RXhnImLJ7w8UL+b0DjQEN1VotN5KEFpaSXaV19TOoKoPphw=="
-  "resolved" "https://registry.npmjs.org/@kanthakarn-test/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz"
-  "version" "1.0.0"
+"@sixnetwork/caverjs-react-types@^1.0.2":
+  "integrity" "sha512-8eINbxxA9WXDr0ywuA+qtOQz28HA80qHgj+E7JXQOMA1OzkhCYbi562Q5nwWqILNqieGODP9EbpCBn+t4lmMeg=="
+  "resolved" "https://registry.npmjs.org/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.2.tgz"
+  "version" "1.0.2"
 
 "js-sha3@0.5.7":
   "integrity" "sha1-DU/9gALVMzqrr0oj7tL2N0yfKOc="

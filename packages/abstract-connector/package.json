@@ -1,9 +1,9 @@
 {
-  "name": "@kanthakarn-test/caverjs-react-abstract-connector",
+  "name": "@sixnetwork/caverjs-react-abstract-connector",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -35,7 +35,7 @@
     "lint": "tsdx lint src"
   },
   "dependencies": {
-    "@kanthakarn-test/caverjs-react-types": "^1.0.0"
+    "@sixnetwork/caverjs-react-types": "^1.0.2"
   },
   "license": "GPL-3.0-or-later"
 }

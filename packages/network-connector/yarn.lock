@@ -2,19 +2,19 @@
 # yarn lockfile v1
 
 
-"@sixnetwork/caverjs-react-abstract-connector@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.0.tgz#6caa5e0dc4a9883b9c41420e230f0f2388b78e1a"
-  integrity sha512-fKvCfJyqSL9NqzYBQE/+oX4oDyrWWkM2p/cjAzgIFxv9M1HrrNPuU0IBwmwWkwRgg8GKEJTIYtAGvK1GgZPULw==
+"@sixnetwork/caverjs-react-abstract-connector@^1.0.3":
+  "integrity" "sha512-Iq+6wkJtDYBB79UZRwIMJfVILK13QYGqXqFBPiGH17ORATDLrzuDxbB5sNUPuu3WDX5WDpsx4jCsfVnGTpfYLw=="
+  "resolved" "https://registry.npmjs.org/@sixnetwork/caverjs-react-abstract-connector/-/caverjs-react-abstract-connector-1.0.3.tgz"
+  "version" "1.0.3"
   dependencies:
-    "@sixnetwork/caverjs-react-types" "^1.0.0"
+    "@sixnetwork/caverjs-react-types" "^1.0.2"
 
-"@sixnetwork/caverjs-react-types@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.0.tgz#89b7960bea37764c12a9cad5fe9a70dc4475c5ba"
-  integrity sha512-eFeP/FPjraQPPzwt6KFEv/W1OEWccu91sDC2KGP1VbmtDFwk5wEvjE0RcfWdI1kZcNCwCrSCxMX6oymrTYklcA==
+"@sixnetwork/caverjs-react-types@^1.0.2":
+  "integrity" "sha512-8eINbxxA9WXDr0ywuA+qtOQz28HA80qHgj+E7JXQOMA1OzkhCYbi562Q5nwWqILNqieGODP9EbpCBn+t4lmMeg=="
+  "resolved" "https://registry.npmjs.org/@sixnetwork/caverjs-react-types/-/caverjs-react-types-1.0.2.tgz"
+  "version" "1.0.2"
 
-tiny-invariant@^1.0.6:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/tiny-invariant/-/tiny-invariant-1.1.0.tgz#634c5f8efdc27714b7f386c35e6760991d230875"
-  integrity sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==
+"tiny-invariant@^1.0.6":
+  "integrity" "sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw=="
+  "resolved" "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.1.0.tgz"
+  "version" "1.1.0"
