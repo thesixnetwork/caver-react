@@ -1,7 +1,7 @@
 import QRcode from 'qrcode'
 import axios from 'axios'
 // const Caver = require('caver-js')
-import {Send} from './types'
+
 
 
 export default class KlipProvider {
@@ -9,16 +9,14 @@ export default class KlipProvider {
         this.isAuth = false
         this.requestKey = ''
         this.responseData = undefined
-        // this.caver = new Caver("https://kaikas.cypress.klaytn.net:8651/")
-        // this.send = (new Caver("https://kaikas.cypress.klaytn.net:8651/")).klaytn
+       
     }
     private isAuth: boolean
     private requestKey: string
     private responseData: any
     private intervalCheckResult?: NodeJS.Timeout
     private account: string = ""
-    // private caver 
-    // public send 
+    
     initData = () => {
         this.requestKey = ""
         this.responseData = undefined
@@ -28,7 +26,6 @@ export default class KlipProvider {
         this.isAuth = true
     }
     logout = () => {
-        // console.log(this.send)
         this.isAuth = false
     }
     getAuth = () => {
@@ -56,7 +53,7 @@ export default class KlipProvider {
 
     getResult = async () => {
         const url = `https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${this.requestKey}`
-        // const url = `http://localhost:8080?request_key=${this.requestKey}`
+        
         const res = await axios.get(url)
         if (res.data.status == "completed") {
             this.account = res.data.result.klaytn_address
