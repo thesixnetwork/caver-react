@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "caverjs-react",
+  "name": "@kanthakarn-test/caverjs-react",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",

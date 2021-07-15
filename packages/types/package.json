@@ -1,9 +1,9 @@
 {
-  "name": "@sixnetwork/caverjs-react-types",
+  "name": "@kanthakarn-test/caverjs-react-types",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",

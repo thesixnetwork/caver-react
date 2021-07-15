@@ -1,5 +1,5 @@
 {
-  "name": "@sixnetwork/klip-connector",
+  "name": "@kanthakarn-test/klip-connector",
   "publishConfig": {
     "access": "public"
   },
@@ -36,11 +36,13 @@
     "lint": "tsdx lint src"
   },
   "dependencies": {
+    "@kanthakarn-test/caverjs-react-abstract-connector": "^1.0.0",
+    "@kanthakarn-test/caverjs-react-types": "^1.0.0",
     "@types/qrcode": "^1.4.0",
     "axios": "^0.21.1",
-    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.1",
-    "@sixnetwork/caverjs-react-types": "^1.0.1",
+    "caver-js": "^1.6.3",
     "lit-html": "^1.4.1",
+    "qrcode": "^1.4.4",
     "tiny-warning": "^1.0.3"
   },
   "license": "GPL-3.0-or-later"

@@ -1,9 +1,9 @@
-import { AbstractConnectorArguments, ConnectorUpdate } from '@sixnetwork/caverjs-react-types'
-import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
+import { AbstractConnectorArguments, ConnectorUpdate } from '@kanthakarn-test/caverjs-react-types'
+import { AbstractConnector } from '@kanthakarn-test/caverjs-react-abstract-connector'
 // import warning from 'tiny-warning'
-import * as klipProvider from "./klipProvider"
+const Caver = require("caver-js")
+import KlipProvider from "./KlipProvider"
 
-import { SendReturnResult, SendReturn, Send } from './types'
 
 export interface KlipArguments extends AbstractConnectorArguments {
   supportedChainIds?: number[]
@@ -11,9 +11,6 @@ export interface KlipArguments extends AbstractConnectorArguments {
   closeModal: () => void
 }
 
-function parseSendReturn(sendReturn: SendReturnResult | SendReturn): any {
-  return sendReturn.hasOwnProperty('result') ? sendReturn.result : sendReturn
-}
 
 export class NoKlaytnProviderError extends Error {
   public constructor() {
@@ -41,14 +38,17 @@ export class KlipConnector extends AbstractConnector {
     this.handleChainChanged = this.handleChainChanged.bind(this)
     this.handleAccountsChanged = this.handleAccountsChanged.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    // const httpProvider = new Caver.providers.HttpProvider("https://kaikas.cypress.klaytn.net:8651/")
+    this.providerCaver = (new Caver("https://kaikas.cypress.klaytn.net:8651/")).currentProvider
   }
+  private providerCaver?:any 
   private showModal: () => void
   private closeModal: () => void
   private handleChainChanged(chainId: string | number): void {
     if (__DEV__) {
       console.log("Handling 'chainChanged' event with payload", chainId)
     }
-    this.emitUpdate({ chainId, provider: window.klaytn })
+    this.emitUpdate({ chainId, provider: this.providerCaver })
   }
 
   private handleAccountsChanged(accounts: string[]): void {
@@ -58,7 +58,7 @@ export class KlipConnector extends AbstractConnector {
     if (accounts.length === 0) {
       this.emitDeactivate()
     } else {
-      this.emitUpdate({ account: accounts[0]})
+      this.emitUpdate({ account: accounts[0] })
     }
   }
 
@@ -73,40 +73,36 @@ export class KlipConnector extends AbstractConnector {
     if (__DEV__) {
       console.log("Handling 'networkChanged' event with payload", networkId)
     }
-    this.emitUpdate({ chainId: networkId, provider: window.klaytn })
+    this.emitUpdate({ chainId: networkId, provider: this.providerCaver })
   }
 
   public async activate(): Promise<ConnectorUpdate> {
-   
-
     // if (window.klaytn.on) {
     //   window.klaytn.on('chainChanged', this.handleChainChanged)
     //   window.klaytn.on('accountsChanged', this.handleAccountsChanged)
     //   window.klaytn.on('close', this.handleClose)
     //   window.klaytn.on('networkChanged', this.handleNetworkChanged)
     // }
-    let account
-    // console.log("test")
-    console.log("klip activate 1")
+    
+    this.KlipConnectorProvider = new KlipProvider()
 
+    let account
+ 
     if (!account) {
       this.showModal()
-      klipProvider.genQRcode()
-      account = await klipProvider.checkResponse()
-      // await (window.klaytn.send as Send)('klay_accounts').then(sendReturn => parseSendReturn(sendReturn)[0])
-      
+      this.KlipConnectorProvider.genQRcode()
+      account = await this.KlipConnectorProvider.checkResponse()
+ 
+
       this.closeModal()
-      
+      this.KlipConnectorProvider.login()
     }
-    console.log("account klip : ", account)
-    // await window.klaytn.enable().then(sendReturn => sendReturn && parseSendReturn(sendReturn)[0])
-    
-    
-    return { provider:window.klaytn, ...(account ? { account } : {})}
+ 
+    return { provider: this.providerCaver, ...(account ? { account } : {}) }
   }
 
   public async getProvider(): Promise<any> {
-    return window.klaytn
+    return this.providerCaver
   }
 
   public async getChainId(): Promise<number | string> {
@@ -116,33 +112,29 @@ export class KlipConnector extends AbstractConnector {
 
   public async getAccount(): Promise<null | string> {
 
-    return klipProvider.getAccount()
+    return this.KlipConnectorProvider.getAccount()
   }
-  
+
   public deactivate() {
-    if (window.klaytn && window.klaytn.removeListener) {
-      window.klaytn.removeListener('chainChanged', this.handleChainChanged)
-      window.klaytn.removeListener('accountsChanged', this.handleAccountsChanged)
-      window.klaytn.removeListener('close', this.handleClose)
-      window.klaytn.removeListener('networkChanged', this.handleNetworkChanged)
-    }
+    this.KlipConnectorProvider.logout()
   }
 
   public async isAuthorized(): Promise<boolean> {
-    if (!window.klaytn) {
-      return false
-    }
+    return this.KlipConnectorProvider.getAuth()
+    //   if (!window.klaytn) {
+    //     return false
+    //   }
 
-    try {
-      return await (window.klaytn.send as Send)('klay_accounts').then(sendReturn => {
-        if (parseSendReturn(sendReturn).length > 0) {
-          return true
-        } else {
-          return false
-        }
-      })
-    } catch {
-      return false
-    }
+    //   try {
+    //     return await (window.klaytn.send as Send)('klay_accounts').then(sendReturn => {
+    //       if (parseSendReturn(sendReturn).length > 0) {
+    //         return true
+    //       } else {
+    //         return false
+    //       }
+    //     })
+    //   } catch {
+    //     return false
+    //   }
   }
 }

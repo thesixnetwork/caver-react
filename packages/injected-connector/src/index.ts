@@ -1,5 +1,5 @@
-import { AbstractConnectorArguments, ConnectorUpdate } from '@sixnetwork/caverjs-react-types'
-import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
+import { AbstractConnectorArguments, ConnectorUpdate } from '@kanthakarn-test/caverjs-react-types'
+import { AbstractConnector } from '@kanthakarn-test/caverjs-react-abstract-connector'
 import warning from 'tiny-warning'
 
 import { SendReturnResult, SendReturn, Send, SendOld } from './types'
@@ -147,7 +147,7 @@ export class InjectedConnector extends AbstractConnector {
           (window.klaytn as any)._chainId
       }
     }
-
+    console.log("chainId ",chainId)
     return chainId
   }
 

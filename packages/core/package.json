@@ -1,9 +1,9 @@
 {
-  "name": "@sixnetwork/caverjs-react-core",
+  "name": "@kanthakarn-test/caverjs-react-core",
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.1.1",
+  "version": "1.0.3",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -37,9 +37,8 @@
   },
   "dependencies": {
     "@ethersproject/keccak256": "^5.1.0",
-    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.1",
-    "@sixnetwork/caverjs-react-types": "^1.0.1",
-    "react-dom": "^17.0.1",
+    "@kanthakarn-test/caverjs-react-abstract-connector": "^1.0.0",
+    "@kanthakarn-test/caverjs-react-types": "^1.0.0",
     "tiny-invariant": "^1.0.6",
     "tiny-warning": "^1.0.3"
   },

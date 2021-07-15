@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useCallback, useRef } from 'react'
-import { ConnectorUpdate, ConnectorEvent } from '@sixnetwork/caverjs-react-types'
-import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
+import { ConnectorUpdate, ConnectorEvent } from '@kanthakarn-test/caverjs-react-types'
+import { AbstractConnector } from '@kanthakarn-test/caverjs-react-abstract-connector'
 import warning from 'tiny-warning'
 
 import { CaverJsReactManagerReturn } from './types'
