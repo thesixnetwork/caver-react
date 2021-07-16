@@ -1,5 +1,5 @@
-import { AbstractConnectorArguments, ConnectorUpdate } from '@kanthakarn-test/caverjs-react-types'
-import { AbstractConnector } from '@kanthakarn-test/caverjs-react-abstract-connector'
+import { AbstractConnectorArguments, ConnectorUpdate } from '@sixnetwork/caverjs-react-types'
+import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
 // import warning from 'tiny-warning'
 const Caver = require("caver-js")
 import KlipProvider from "./KlipProvider"
@@ -38,7 +38,9 @@ export class KlipConnector extends AbstractConnector {
     this.handleChainChanged = this.handleChainChanged.bind(this)
     this.handleAccountsChanged = this.handleAccountsChanged.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    // const httpProvider = new Caver.providers.HttpProvider("https://kaikas.cypress.klaytn.net:8651/")
+    
+    // provider 
+    // this.providerCaver = window.klaytn
     this.providerCaver = (new Caver("https://kaikas.cypress.klaytn.net:8651/")).currentProvider
   }
   private providerCaver?:any 

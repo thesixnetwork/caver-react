@@ -1,4 +1,4 @@
-import { AbstractConnector } from '@kanthakarn-test/caverjs-react-abstract-connector'
+import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
 
 export interface CaverJsReactManagerFunctions {
   activate: (connector: AbstractConnector, onError?: (error: Error) => void, throwErrors?: boolean) => Promise<void>

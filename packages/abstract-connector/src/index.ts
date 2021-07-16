@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from '@kanthakarn-test/caverjs-react-types'
+import { AbstractConnectorArguments, ConnectorUpdate, ConnectorEvent } from '@sixnetwork/caverjs-react-types'
 
 export abstract class AbstractConnector extends EventEmitter {
   public readonly supportedChainIds?: number[]

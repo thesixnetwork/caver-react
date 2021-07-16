@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -35,8 +35,8 @@
     "lint": "tsdx lint src"
   },
   "dependencies": {
-    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.3",
-    "@sixnetwork/caverjs-react-types": "^1.0.2",
+    "@sixnetwork/caverjs-react-abstract-connector": "^1.0.4",
+    "@sixnetwork/caverjs-react-types": "^1.0.3",
     "tiny-invariant": "^1.0.6"
   },
   "license": "GPL-3.0-or-later"
