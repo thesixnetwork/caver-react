@@ -52,7 +52,7 @@ export default class KlipProvider {
     }
 
     getResult = async () => {
-        const url = `http://localhost:8080/auth`// `https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${this.requestKey}`
+        const url = `https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${this.requestKey}`
         
         const res = await axios.get(url)
         if (res.data.status == "completed") {
