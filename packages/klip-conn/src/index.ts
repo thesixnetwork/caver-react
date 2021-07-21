@@ -3,6 +3,7 @@ import { AbstractConnector } from '@sixnetwork/caverjs-react-abstract-connector'
 // import warning from 'tiny-warning'
 const Caver = require("caver-js")
 import KlipProvider from "./KlipProvider"
+import getRPCHelper from './getRPCHelper'
 
 
 export interface KlipArguments extends AbstractConnectorArguments {
@@ -41,7 +42,7 @@ export class KlipConnector extends AbstractConnector {
     
     // provider 
     // this.providerCaver = window.klaytn
-    this.providerCaver = (new Caver("https://kaikas.cypress.klaytn.net:8651/")).currentProvider
+    
   }
   private providerCaver?:any 
   private showModal: () => void
@@ -85,6 +86,7 @@ export class KlipConnector extends AbstractConnector {
     //   window.klaytn.on('close', this.handleClose)
     //   window.klaytn.on('networkChanged', this.handleNetworkChanged)
     // }
+    this.providerCaver = (new Caver(await getRPCHelper())).currentProvider
     
     this.KlipConnectorProvider = new KlipProvider()
 

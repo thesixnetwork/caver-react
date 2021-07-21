@@ -2,8 +2,6 @@ import QRcode from 'qrcode'
 import axios from 'axios'
 // const Caver = require('caver-js')
 
-
-
 export default class KlipProvider {
     constructor() {
         this.isAuth = false
@@ -52,6 +50,7 @@ export default class KlipProvider {
     }
 
     getResult = async () => {
+        
         const url = `https://a2a-api.klipwallet.com/v2/a2a/result?request_key=${this.requestKey}`
         
         const res = await axios.get(url)
