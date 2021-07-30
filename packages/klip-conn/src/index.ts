@@ -125,20 +125,6 @@ export class KlipConnector extends AbstractConnector {
 
   public async isAuthorized(): Promise<boolean> {
     return this.KlipConnectorProvider.getAuth()
-    //   if (!window.klaytn) {
-    //     return false
-    //   }
-
-    //   try {
-    //     return await (window.klaytn.send as Send)('klay_accounts').then(sendReturn => {
-    //       if (parseSendReturn(sendReturn).length > 0) {
-    //         return true
-    //       } else {
-    //         return false
-    //       }
-    //     })
-    //   } catch {
-    //     return false
-    //   }
+   
   }
 }
