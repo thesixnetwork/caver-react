@@ -3,7 +3,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.8",
+  "version": "1.0.8-klip-mobile-support-v6",
   "description": "A simple, maximally extensible, dependency minimized framework for building modern Klaytn dApps",
   "keywords": [
     "react",
@@ -43,6 +43,7 @@
     "caver-js": "^1.6.3",
     "lit-html": "^1.4.1",
     "qrcode": "^1.4.4",
+    "react-device-detect": "^1.17.0",
     "tiny-warning": "^1.0.3"
   },
   "license": "GPL-3.0-or-later"

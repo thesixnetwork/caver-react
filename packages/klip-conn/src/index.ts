@@ -93,12 +93,12 @@ export class KlipConnector extends AbstractConnector {
     let account
  
     if (!account) {
-      this.showModal()
-      this.KlipConnectorProvider.genQRcode()
+      
+      this.KlipConnectorProvider.genQRcode(this.showModal)
       account = await this.KlipConnectorProvider.checkResponse()
- 
-
       this.closeModal()
+
+      
       this.KlipConnectorProvider.login()
     }
  
