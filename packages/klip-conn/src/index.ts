@@ -91,7 +91,13 @@ export class KlipConnector extends AbstractConnector {
     this.KlipConnectorProvider = new KlipProvider()
 
     let account
- 
+
+
+    if (localStorage.getItem("connector") == "klip" && localStorage.getItem("userAccount")) {
+      account = localStorage.getItem("userAccount");
+      this.KlipConnectorProvider.login()
+    }
+    if(localStorage.getItem("connector"))
     if (!account) {
       
       this.KlipConnectorProvider.genQRcode(this.showModal)
