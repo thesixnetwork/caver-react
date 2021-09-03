@@ -102,6 +102,7 @@ export class KlipConnector extends AbstractConnector {
       
       this.KlipConnectorProvider.genQRcode(this.showModal)
       account = await this.KlipConnectorProvider.checkResponse()
+      localStorage.setItem("userAccount",account);
       this.closeModal()
 
       
